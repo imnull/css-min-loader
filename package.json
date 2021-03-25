@@ -1,6 +1,6 @@
 {
   "name": "css-min-loader",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A loader to compress css in webpack.",
   "main": "dist/index.js",
   "scripts": {
@@ -13,7 +13,8 @@
   },
   "keywords": [
     "css",
-    "compress"
+    "compress",
+    "webpack"
   ],
   "author": "imnull@outlook.com",
   "license": "ISC",
@@ -23,6 +24,7 @@
   "homepage": "https://github.com/imnull/css-min-loader#readme",
   "dependencies": {
     "@types/css": "^0.0.31",
+    "@types/cssnano": "^4.0.0",
     "css": "^3.0.0"
   }
 }

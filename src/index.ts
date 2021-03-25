@@ -1,4 +1,4 @@
-import { parse, stringify, Rule } from 'css'
+import { parse, stringify, Rule, Declaration } from 'css'
 
 function loader (source: string): string {
     const ast = parse(source, {  })
@@ -7,10 +7,23 @@ function loader (source: string): string {
         const { rules = [] } = stylesheet
         rules.forEach((rule) => {
             if(rule.type === 'rule') {
-                const sels = (rule as Rule).selectors.map(sel => {
-                    return sel.replace(/^\s+|\s+$/g, '').replace(/\s+/, ' ')
+                const { selectors = [], declarations = [] } = rule as Rule
+                const sels = selectors.map(sel => {
+                    return sel.replace(/^\s+|\s+$/g, '').replace(/\s*([\+\>\~\:]+)\s*/g, '$1').replace(/\s+/g, ' ')
                 });
                 (rule as Rule).selectors = sels
+
+                declarations.forEach(declaration => {
+                    if(declaration.type === 'declaration') {
+                        const { value } = declaration as Declaration
+                        if(typeof value === 'string') {
+                            const val = value.replace(/"[^"]*"|'[^']*'|\s*,\s*/g, m => {
+                                return m.replace(/^\s+|\s+$/g, '')
+                            });
+                            (declaration as Declaration).value = val
+                        }
+                    }
+                })
             }
         })
     }

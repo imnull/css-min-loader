@@ -2,6 +2,7 @@ import loader from './src/index'
 
 const codes = [
     [`
+    /* comment */
     a        b,
     c    d {
         color:           #fff;

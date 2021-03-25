@@ -1,6 +1,6 @@
 {
   "name": "css-min-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A loader to compress css in webpack.",
   "main": "dist/index.js",
   "scripts": {

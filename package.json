@@ -1,0 +1,28 @@
+{
+  "name": "css-min-loader",
+  "version": "1.0.0",
+  "description": "A loader to compress css in webpack.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "ts-node test.ts",
+    "build": "rm -rf dist && tsc src/index.ts -d --module commonjs --lib es5 --outDir dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imnull/css-min-loader.git"
+  },
+  "keywords": [
+    "css",
+    "compress"
+  ],
+  "author": "imnull@outlook.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imnull/css-min-loader/issues"
+  },
+  "homepage": "https://github.com/imnull/css-min-loader#readme",
+  "dependencies": {
+    "@types/css": "^0.0.31",
+    "css": "^3.0.0"
+  }
+}
